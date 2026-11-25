@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lock_service_label">Lumina Sperre</string>
-    <string name="lock_service_description">Während einer Lese-Session hält Lumina dich bei deinem Buch: Nur Lumina und die Apps, die du im Modus erlaubt hast, lassen sich öffnen. Lumina sieht dabei nur, welche App gerade vorne ist, und liest keine Inhalte. Außerhalb einer Session nur, wenn du die Denkpause eingeschaltet hast: Dann kommt vor den Apps, die du dort ausgewählt hast, erst eine kurze Aufgabe.</string>
+    <string name="lock_service_description">Während einer Fokuszeit hält Lumina dich bei dem, was du dir vorgenommen hast: Nur Lumina und die Apps, die du im Modus erlaubt hast, lassen sich öffnen. Lumina sieht dabei nur, welche App gerade vorne ist, und liest keine Inhalte. Außerhalb einer Fokuszeit nur für Vollbild-Erinnerungen und, wenn du die Denkpause eingeschaltet hast, für eine kurze Aufgabe vor den Apps, die du dort ausgewählt hast.</string>
 
     <string name="widget_lumi_label">Lumi</string>
     <string name="widget_lumi_desc">Lumi sagt dir, wie dein Tag läuft – und feuert dich an.</string>

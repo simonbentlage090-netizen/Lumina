@@ -2,7 +2,7 @@
 <!-- Englisch ist der Standard. Die deutschen Texte stehen in values-de (das Handy nimmt sie, wenn es auf Deutsch eingestellt ist). -->
 <resources>
     <string name="lock_service_label">Lumina Lock</string>
-    <string name="lock_service_description">During a reading session Lumina keeps you with your book: only Lumina and the apps you allowed in your mode can be opened. Lumina only sees which app is in front and never reads any content. Outside a session only if you turned on Think break: then a short task comes before the apps you picked there.</string>
+    <string name="lock_service_description">During a focus session Lumina keeps you with what you set out to do: only Lumina and the apps you allowed in your mode can be opened. Lumina only sees which app is in front and never reads any content. Outside a session it is only used for full-screen reminders and, if you turned on Think break, to show a short task before the apps you picked there.</string>
 
     <string name="widget_lumi_label">Lumi</string>
     <string name="widget_lumi_desc">Lumi tells you how your day is going – and cheers you on.</string>
