@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Knopf im Lumi-Widget, wenn der Streak bald reißt. Beim Drücken etwas dunkler, damit man sieht, dass der Tipp angekommen ist. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/w_alert_pressed" />
+            <corners android:radius="100dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/w_alert" />
+            <corners android:radius="100dp" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,3 @@
+- Notes: calmer bar with language, microphone and "Clean up" – choose text or bullet points when you tap it
+- Table of contents as a reading path with reading progress
+- Think break: clearer explanation with "Try it"

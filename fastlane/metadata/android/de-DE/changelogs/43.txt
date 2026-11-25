@@ -1,0 +1,4 @@
+- Sprachnotizen jetzt auch beim Lesen
+- Rechner im Buch: Seite oben groß, verschieb- und zoombar
+- Bücher als Regal aus Umschlägen, ruhigeres Inhaltsverzeichnis, neue Papierwahl
+- Anleitung beschreibt alle Funktionen

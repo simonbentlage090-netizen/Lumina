@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Lumi-Widget, breit (z. B. 4x2). Seit 12.0 neu gestaltet, alles auf einem 8-dp-Raster:
+  Lumi links in einem weichen Lichtschein, rechts eine klare Reihenfolge – oben (falls da) eine große Zahl,
+  dann die Überschrift, dann ein großer Knopf über die ganze Spaltenbreite. Kein Fließtext.
+  Die Wurzel heißt @android:id/background, damit der Startbildschirm Ecken und Öffnen-Animation richtig macht.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg_warm_h"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
+
+    <ImageView
+        android:id="@+id/w_lumi"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="44"
+        android:contentDescription="Lumi"
+        android:scaleType="fitCenter"
+        android:src="@drawable/lumi_w_hello" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_weight="56"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/w_big"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:autoSizeMaxTextSize="40sp"
+            android:autoSizeMinTextSize="22sp"
+            android:autoSizeStepGranularity="2sp"
+            android:autoSizeTextType="uniform"
+            android:fontFeatureSettings="tnum"
+            android:gravity="bottom|start"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.02"
+            android:maxLines="1"
+            android:textColor="@color/w_accent_text"
+            android:fontFamily="sans-serif-medium"
+            android:visibility="gone" />
+
+        <Chronometer
+            android:id="@+id/w_chrono"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:autoSizeMaxTextSize="40sp"
+            android:autoSizeMinTextSize="22sp"
+            android:autoSizeStepGranularity="2sp"
+            android:autoSizeTextType="uniform"
+            android:countDown="true"
+            android:fontFeatureSettings="tnum"
+            android:gravity="bottom|start"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/w_alert"
+            android:fontFamily="sans-serif-medium"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/w_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:autoSizeMaxTextSize="26sp"
+            android:autoSizeMinTextSize="14sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="end"
+            android:gravity="center_vertical|start"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.01"
+            android:lineSpacingMultiplier="0.95"
+            android:maxLines="2"
+            android:text="@string/widget_preview_title"
+            android:textColor="@color/w_text"
+            android:fontFamily="sans-serif-medium" />
+
+        <LinearLayout
+            android:id="@+id/w_goal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/w_goal_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="40"
+                android:progressDrawable="@drawable/widget_progress" />
+
+            <TextView
+                android:id="@+id/w_goal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:fontFeatureSettings="tnum"
+                android:singleLine="true"
+                android:textColor="@color/w_sub"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/w_cta"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:autoSizeMaxTextSize="17sp"
+            android:autoSizeMinTextSize="11sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/widget_btn_accent"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="@string/widget_preview_cta"
+            android:textColor="@color/w_on_accent"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fortschritt zum Tagesziel im Lumi-Widget: dünne, runde Linie. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="3dp" />
+            <solid android:color="@color/w_track" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <scale android:scaleGravity="left" android:scaleWidth="100%">
+            <shape android:shape="rectangle">
+                <corners android:radius="3dp" />
+                <solid android:color="@color/w_accent" />
+            </shape>
+        </scale>
+    </item>
+</layer-list>

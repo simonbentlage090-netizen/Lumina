@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lumi-Widget, Stimmung "alert" (hoch/klein: Lichtschein oben bei Lumi). Ein weicher Schein in der Stimmungsfarbe,
+     der zur ruhigen Kartenfarbe ausläuft. Ecken wie die System-Widgets (ab Android 12). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:centerX="0.5"
+        android:centerY="0.36"
+        android:endColor="@color/w_bg"
+        android:gradientRadius="85%"
+        android:startColor="#FF3D1D19"
+        android:type="radial" />
+    <corners android:radius="@dimen/w_radius" />
+</shape>

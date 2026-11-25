@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Startbildschirm-Symbol (ab Android 12): das App-Symbol. Die Sonne geht hinter dem Buch auf,
+    danach wachsen die Strahlen nacheinander heraus. 288 dp, das System schneidet einen Kreis
+    mit 192 dp aus; 108er Raster wie beim App-Symbol (2,667-fach).
+    Die Start-Animation in der App (StartIntro.kt) setzt genau hier an.
+-->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="288dp"
+            android:height="288dp"
+            android:viewportWidth="288"
+            android:viewportHeight="288">
+            <group
+                android:scaleX="2.6667"
+                android:scaleY="2.6667">
+                <path android:pathData="M0,0h108v108h-108z">
+                    <aapt:attr name="android:fillColor">
+                        <gradient
+                            android:type="linear"
+                            android:startX="0"
+                            android:startY="0"
+                            android:endX="0"
+                            android:endY="108">
+                            <item android:offset="0" android:color="#FF2A2777" />
+                            <item android:offset="1" android:color="#FF15134A" />
+                        </gradient>
+                    </aapt:attr>
+                </path>
+                <group android:name="rays">
+                    <path
+                        android:name="ray0"
+                        android:strokeColor="#FFFFFFFF"
+                        android:strokeWidth="4"
+                        android:strokeLineCap="round"
+                        android:strokeAlpha="0"
+                        android:trimPathEnd="0"
+                        android:pathData="M40.14 41l-5.63-3.25" />
+                    <path
+                        android:name="ray1"
+                        android:strokeColor="#FFFFFFFF"
+                        android:strokeWidth="4"
+                        android:strokeLineCap="round"
+                        android:strokeAlpha="0"
+                        android:trimPathEnd="0"
+                        android:pathData="M46 35.14l-3.25-5.63" />
+                    <path
+                        android:name="ray2"
+                        android:strokeColor="#FFFFFFFF"
+                        android:strokeWidth="4"
+                        android:strokeLineCap="round"
+                        android:strokeAlpha="0"
+                        android:trimPathEnd="0"
+                        android:pathData="M54 33v-6.5" />
+                    <path
+                        android:name="ray3"
+                        android:strokeColor="#FFFFFFFF"
+                        android:strokeWidth="4"
+                        android:strokeLineCap="round"
+                        android:strokeAlpha="0"
+                        android:trimPathEnd="0"
+                        android:pathData="M62 35.14l3.25-5.63" />
+                    <path
+                        android:name="ray4"
+                        android:strokeColor="#FFFFFFFF"
+                        android:strokeWidth="4"
+                        android:strokeLineCap="round"
+                        android:strokeAlpha="0"
+                        android:trimPathEnd="0"
+                        android:pathData="M67.86 41l5.63-3.25" />
+                </group>
+                <group
+                    android:name="sun"
+                    android:pivotX="54"
+                    android:pivotY="49"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:translateY="6">
+                    <path
+                        android:fillColor="#FFFFFFFF"
+                        android:pathData="M54,38a11,11 0 1,1 -0.01,0z" />
+                </group>
+                <path
+                    android:fillColor="#FFFFFFFF"
+                    android:strokeWidth="3.2"
+                    android:strokeLineJoin="round"
+                    android:pathData="M52 57.5C45 52.5 37 51.2 30 52C29 52.1 28.5 52.8 28.5 53.8V75C28.5 76.1 29.4 76.9 30.5 76.8C37.5 76.1 45 77.5 52 82Z">
+                    <aapt:attr name="android:strokeColor">
+                        <gradient android:type="linear" android:startX="0" android:startY="0" android:endX="0" android:endY="108">
+                            <item android:offset="0" android:color="#FF2A2777" />
+                            <item android:offset="1" android:color="#FF15134A" />
+                        </gradient>
+                    </aapt:attr>
+                </path>
+                <path
+                    android:fillColor="#FFFFFFFF"
+                    android:strokeWidth="3.2"
+                    android:strokeLineJoin="round"
+                    android:pathData="M56 57.5C63 52.5 71 51.2 78 52C79 52.1 79.5 52.8 79.5 53.8V75C79.5 76.1 78.6 76.9 77.5 76.8C70.5 76.1 63 77.5 56 82Z">
+                    <aapt:attr name="android:strokeColor">
+                        <gradient android:type="linear" android:startX="0" android:startY="0" android:endX="0" android:endY="108">
+                            <item android:offset="0" android:color="#FF2A2777" />
+                            <item android:offset="1" android:color="#FF15134A" />
+                        </gradient>
+                    </aapt:attr>
+                </path>
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="sun">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:duration="520"
+                    android:valueFrom="0.7"
+                    android:valueTo="1"
+                    android:interpolator="@interpolator/lumina_ease_out" />
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:duration="520"
+                    android:valueFrom="0.7"
+                    android:valueTo="1"
+                    android:interpolator="@interpolator/lumina_ease_out" />
+                <objectAnimator
+                    android:propertyName="translateY"
+                    android:duration="520"
+                    android:valueFrom="6"
+                    android:valueTo="0"
+                    android:interpolator="@interpolator/lumina_ease_out" />
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="ray0">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="trimPathEnd"
+                    android:startOffset="240"
+                    android:duration="260"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:interpolator="@interpolator/lumina_ease_out" />
+                <objectAnimator
+                    android:propertyName="strokeAlpha"
+                    android:startOffset="240"
+                    android:duration="120"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="ray1">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="trimPathEnd"
+                    android:startOffset="285"
+                    android:duration="260"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:interpolator="@interpolator/lumina_ease_out" />
+                <objectAnimator
+                    android:propertyName="strokeAlpha"
+                    android:startOffset="285"
+                    android:duration="120"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="ray2">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="trimPathEnd"
+                    android:startOffset="330"
+                    android:duration="260"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:interpolator="@interpolator/lumina_ease_out" />
+                <objectAnimator
+                    android:propertyName="strokeAlpha"
+                    android:startOffset="330"
+                    android:duration="120"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="ray3">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="trimPathEnd"
+                    android:startOffset="375"
+                    android:duration="260"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:interpolator="@interpolator/lumina_ease_out" />
+                <objectAnimator
+                    android:propertyName="strokeAlpha"
+                    android:startOffset="375"
+                    android:duration="120"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="ray4">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="trimPathEnd"
+                    android:startOffset="420"
+                    android:duration="260"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:interpolator="@interpolator/lumina_ease_out" />
+                <objectAnimator
+                    android:propertyName="strokeAlpha"
+                    android:startOffset="420"
+                    android:duration="120"
+                    android:valueFrom="0"
+                    android:valueTo="1" />
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>

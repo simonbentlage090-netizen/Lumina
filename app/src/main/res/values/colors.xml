@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="funke_ink">#FF09090B</color>
+    <!-- Fensterfarbe (auch Startbildschirm): hell im Hellmodus ... -->
+    <color name="lumina_window">#FFFAF7F0</color>
+
+    <!-- Widgets (hell) -->
+    <color name="w_bg">#FFFFFDF8</color>
+    <color name="w_text">#FF1E1C17</color>
+    <color name="w_sub">#FF77715F</color>
+    <color name="w_track">#FFEFE9DC</color>
+    <color name="w_accent">#FFF2A324</color>
+    <color name="w_accent_text">#FFC97A00</color>
+    <color name="w_ice">#FF5FA8E6</color>
+    <color name="w_on_accent">#FF1E1C17</color>
+    <color name="w_on_ice">#FFFFFFFF</color>
+    <color name="w_alert">#FFD9483B</color>
+    <color name="w_on_alert">#FFFFFFFF</color>
+    <color name="w_ice_text">#FF2F7FC4</color>
+    <!-- weiche Kapseln im Streak-Widget -->
+    <color name="w_chip_done">#FFFCE8C4</color>
+    <color name="w_chip_ice">#FFE2EFFB</color>
+    <!-- gedrückte Knöpfe im Lumi-Widget -->
+    <color name="w_accent_pressed">#FFD98C12</color>
+    <color name="w_ice_pressed">#FF4A90CC</color>
+    <color name="w_alert_pressed">#FFBC3A2E</color>
+</resources>

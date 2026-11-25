@@ -1,0 +1,3 @@
+- Notizen: ruhigere Leiste mit Sprache, Mikrofon und „Aufräumen“ – Text oder Stichpunkte wählst du beim Antippen
+- Inhaltsverzeichnis als Leseweg mit Lesefortschritt
+- Denkpause: klarere Erklärung mit „Ausprobieren“

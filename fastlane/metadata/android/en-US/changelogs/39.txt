@@ -1,0 +1,1 @@
+Calmer design without needless frames and pills, house icon for the home tab, new physics picture, glowing knowledge when picking a level, chapter search on demand, no accidental zoom in PDFs, table of contents read from the PDF itself.

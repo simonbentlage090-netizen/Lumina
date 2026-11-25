@@ -1,0 +1,8 @@
+- Books as a calm list for any number of books, each with a progress bar
+- Chapters: AI for three books a week, otherwise detected on the device from the text
+- Clearer table of contents
+- Think break: how it works in three pictures, plus "Try it"
+- Mixed tasks: choose the subjects yourself
+- Calmer progress tab, focus screen bottom row aligned
+- A font for each style (Cartoon: Fredoka and Nunito), selectable
+- Fixed: sparks that sometimes stayed on screen at the level books

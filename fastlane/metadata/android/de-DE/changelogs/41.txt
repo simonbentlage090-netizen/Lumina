@@ -1,0 +1,3 @@
+- Bücher durchsuchen (ab sechs Büchern, nach Titel oder Autor)
+- Einheitlichere Abschnitts-Überschriften
+- Vorschau in den Einstellungen zeigt Stil und Schrift

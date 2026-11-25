@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lumi-Widget, Stimmung "night" (breit: Lichtschein links bei Lumi). Ein weicher Schein in der Stimmungsfarbe,
+     der zur ruhigen Kartenfarbe ausläuft. Ecken wie die System-Widgets (ab Android 12). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:centerX="0.2"
+        android:centerY="0.55"
+        android:endColor="@color/w_bg"
+        android:gradientRadius="95%"
+        android:startColor="#FF241F3D"
+        android:type="radial" />
+    <corners android:radius="@dimen/w_radius" />
+</shape>

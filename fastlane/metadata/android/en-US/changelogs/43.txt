@@ -1,0 +1,4 @@
+- Voice notes while reading
+- Calculator in books: the page stays big on top, drag and zoom
+- Books as a shelf of covers, calmer contents, new paper picker
+- The guide covers every feature

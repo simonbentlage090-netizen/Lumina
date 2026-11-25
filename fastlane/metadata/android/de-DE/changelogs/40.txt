@@ -1,0 +1,8 @@
+- Bücher als ruhige Liste für beliebig viele Bücher, jedes mit Balken und Stand
+- Kapitel: KI für drei Bücher pro Woche, sonst Erkennung direkt auf dem Handy aus dem Text
+- Inhaltsverzeichnis klarer gesetzt
+- Denkpause: Ablauf in drei Bildern und „Ausprobieren“
+- Gemischte Aufgaben: Fächer selbst wählen
+- Fortschritt ruhiger, Fokuszeit unten sauber ausgerichtet
+- Eigene Schrift je Stil (Cartoon: Fredoka und Nunito), frei wählbar
+- Behoben: hängenbleibende Funken bei den Stufen

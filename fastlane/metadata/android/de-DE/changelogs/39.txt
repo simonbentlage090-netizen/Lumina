@@ -1,0 +1,1 @@
+Ruhigeres Design ohne unnötige Rahmen und Pillen, Haus-Symbol für die Startseite, neues Physik-Bild, leuchtendes Wissen beim Wählen einer Stufe, Kapitelsuche auf Abruf, kein versehentliches Zoomen in PDFs, Inhaltsverzeichnis aus dem PDF selbst.

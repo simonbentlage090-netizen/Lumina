@@ -1,0 +1,3 @@
+- Neuer Paketname de.simonbentlage.lumina
+- Pünktliche Erinnerungen erlaubst du jetzt selbst
+- Klarer Hinweis vor dem Einschalten der Bedienungshilfe

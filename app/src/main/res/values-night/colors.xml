@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ... und dunkel im Dunkelmodus. Lumina meldet den gewählten Modus dem System. -->
+    <color name="lumina_window">#FF09090B</color>
+
+    <!-- Widgets (dunkel) -->
+    <color name="w_bg">#FF17161C</color>
+    <color name="w_text">#FFF5F5F7</color>
+    <color name="w_sub">#FFA1A1AA</color>
+    <color name="w_track">#FF2A2932</color>
+    <color name="w_accent">#FFFFC93C</color>
+    <color name="w_accent_text">#FFFFC93C</color>
+    <color name="w_ice">#FF7CC0F5</color>
+    <color name="w_on_accent">#FF1E1C17</color>
+    <color name="w_on_ice">#FF0E1B28</color>
+    <color name="w_alert">#FFFF7A6B</color>
+    <color name="w_on_alert">#FF2A0E0B</color>
+    <color name="w_ice_text">#FF8FCBF7</color>
+    <color name="w_chip_done">#FF3A3220</color>
+    <color name="w_chip_ice">#FF1E2C3A</color>
+    <!-- gedrückte Knöpfe im Lumi-Widget -->
+    <color name="w_accent_pressed">#FFE6AF2A</color>
+    <color name="w_ice_pressed">#FF62A6DB</color>
+    <color name="w_alert_pressed">#FFE0645A</color>
+</resources>

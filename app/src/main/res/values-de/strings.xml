@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lock_service_label">Lumina Sperre</string>
+    <string name="lock_service_description">Während einer Lese-Session hält Lumina dich bei deinem Buch: Nur Lumina und die Apps, die du im Modus erlaubt hast, lassen sich öffnen. Lumina sieht dabei nur, welche App gerade vorne ist, und liest keine Inhalte. Außerhalb einer Session nur, wenn du die Denkpause eingeschaltet hast: Dann kommt vor den Apps, die du dort ausgewählt hast, erst eine kurze Aufgabe.</string>
+
+    <string name="widget_lumi_label">Lumi</string>
+    <string name="widget_lumi_desc">Lumi sagt dir, wie dein Tag läuft – und feuert dich an.</string>
+    <string name="widget_streak_label">Streak</string>
+    <string name="widget_streak_desc">Dein Lese-Streak und dein Streak-Eis.</string>
+    <string name="widget_week_label">Letzte 7 Tage</string>
+    <string name="widget_week_desc">Gelesene Minuten der letzten sieben Tage.</string>
+    <string name="widget_month_label">Monat</string>
+    <string name="widget_month_desc">Deine Lesetage in diesem Monat auf einen Blick.</string>
+    <string name="widget_today_done">Heute geschafft</string>
+    <string name="widget_today_open">Heute noch offen</string>
+    <string name="widget_streak_word">Tage Streak</string>
+    <string name="widget_preview_title">Hi, ich bin Lumi!</string>
+    <string name="widget_preview_text">Lies heute deine ersten Minuten – ich leuchte mit.</string>
+    <string name="widget_preview_cta">Jetzt lesen →</string>
+    <string name="widget_preview_week_total">2 h 05 min</string>
+    <string name="widget_preview_week_sub">Ø 18 Min · Ziel an 4/7 Tagen</string>
+    <string name="widget_preview_month_total">14 Lesetage</string>
+    <string name="widget_preview_month_sub">5 h 40 min · Ziel an 9 Tagen</string>
+</resources>

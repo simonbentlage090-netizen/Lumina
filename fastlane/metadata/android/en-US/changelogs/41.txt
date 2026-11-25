@@ -1,0 +1,3 @@
+- Search your books (from six books, by title or author)
+- More consistent section headings
+- Settings preview shows style and font

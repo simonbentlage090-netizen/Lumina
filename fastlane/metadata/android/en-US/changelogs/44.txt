@@ -1,0 +1,3 @@
+- New package name de.simonbentlage.lumina
+- You now allow on-time reminders yourself
+- Clear notice before turning on the accessibility service

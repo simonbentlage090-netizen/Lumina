@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Damit die App sehen darf, welche Apps installiert sind (für die Auswahl in den Modi). -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <!-- Damit die Sperre den Startbildschirm erkennt (der darf nie freigeschaltet werden). -->
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+        <!-- Damit die Notizen die Spracherkennung des Handys finden (Diktieren). -->
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
+
+    <!-- Bildschirmzeit im Reiter "Apps": nur lesen, wie lange welche App offen war.
+         Sonderberechtigung, die man selbst in den Einstellungen ("Nutzungsdatenzugriff") erteilt. -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Für kräftigere, gut spürbare Haptik direkt über den Vibrationsmotor. -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Lumis Erinnerungen (Tagesziel, Streak in Gefahr). Ab Android 13 fragt die App beim Einrichten. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Nur für das freiwillige Aufräumen mit KI (eigener Schlüssel). Ohne Schlüssel geht nichts ins Netz. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Notizen diktieren. Wird erst gefragt, wenn man zum ersten Mal aufs Mikrofon tippt. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Nach einem Neustart die Erinnerungen wieder planen. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Erinnerungen pünktlich auf die Minute. Seit 15.6 nur noch SCHEDULE_EXACT_ALARM, das man selbst erlaubt
+         (USE_EXACT_ALARM erlaubt Google Play nur Wecker- und Kalender-Apps). Ohne Erlaubnis kommen Erinnerungen
+         etwas ungenauer; unter Erinnerungen steht dann "Pünktliche Erinnerungen erlauben". -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <!-- Energiesparen: seit 15.6 ohne eigene Berechtigung – Lumina öffnet nur die Liste in den Einstellungen. -->
+
+    <application
+        android:name=".LuminaApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Lumina"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Funke">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize|uiMode"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Die Sperre: eine Bedienungshilfe, die während einer Session zurück zu Lumina holt. -->
+        <service
+            android:name=".lock.LockService"
+            android:exported="true"
+            android:label="@string/lock_service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/lock_service" />
+        </service>
+
+        <!-- Erinnerungen: vom Wecker der App geweckt (nur intern). -->
+        <receiver
+            android:name=".notify.ReminderReceiver"
+            android:exported="false" />
+
+        <!-- Nach Neustart / Update / Zeitumstellung die Erinnerungen neu planen (nur System-Meldungen). -->
+        <receiver
+            android:name=".notify.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <!-- Pünktliche Erinnerungen gerade erlaubt: gleich genau neu planen -->
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Widgets -->
+        <receiver
+            android:name=".widget.LumiWidget"
+            android:exported="false"
+            android:label="@string/widget_lumi_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_lumi_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.StreakWidget"
+            android:exported="false"
+            android:label="@string/widget_streak_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_streak_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.WeekWidget"
+            android:exported="false"
+            android:label="@string/widget_week_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_week_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.MonthWidget"
+            android:exported="false"
+            android:label="@string/widget_month_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_month_info" />
+        </receiver>
+    </application>
+
+</manifest>

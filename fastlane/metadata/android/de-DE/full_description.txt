@@ -1,0 +1,32 @@
+<p>Lumina holt dich aus dem Doomscrollen und schenkt dir ruhige Zeit für dich und eine Sache. Begleitet wirst du von Lumi, einer kleinen Glühbirne, die sich mit dir freut.</p>
+
+<p><b>Fokuszeiten</b></p>
+<ul>
+<li>Zeit wählen, Knopf halten, los. Ablenkende Apps sind während der Fokuszeit gesperrt.</li>
+<li>Modi wie „Tiefer Fokus“ mit Apps, die du erlauben möchtest.</li>
+<li>Tagesziel und Streak in Stufen, die motivieren statt zu überfordern.</li>
+</ul>
+
+<p><b>Eigene Bücher</b></p>
+<ul>
+<li>PDF und EPUB, Seite für Seite wie auf einem E-Reader, ohne Ablenkung.</li>
+<li>Inhaltsverzeichnis mit Kapiteln und Unterkapiteln, auch aus dem PDF selbst.</li>
+<li>Lesezeichen, Notizen je Seite und ein Rechner direkt im Buch.</li>
+</ul>
+
+<p><b>Denkpause</b></p>
+<ul>
+<li>Vor ausgewählten Apps kommt erst eine kurze Frage zum Nachdenken.</li>
+<li>Erinnerungen als Pop-up oder Vollbild.</li>
+</ul>
+
+<p><b>Außerdem</b></p>
+<ul>
+<li>Aufgaben in Mathe, Physik und mehr, in Stufen.</li>
+<li>Notizen zum Tippen oder Diktieren.</li>
+<li>Fortschritt mit Bildschirmzeit, Widgets.</li>
+</ul>
+
+<p>Keine Konten, keine Werbung, kein Tracking. Alles bleibt auf deinem Handy. Nur wenn du die optionale Lumina-KI ausdrücklich einschaltest (Notizen aufräumen, Kapitel finden), werden die nötigen Texte an einen Dienst bei Cloudflare geschickt.</p>
+
+<p>Die App-Sperre nutzt die Android-Bedienungshilfe „Lumina Sperre“ ausschließlich, um während einer Fokuszeit zu erkennen, welche App geöffnet wird.</p>

@@ -1,0 +1,32 @@
+<p>Lumina pulls you out of doomscrolling and gives you calm time for yourself and one thing. Lumi, a little light bulb, keeps you company and cheers you on.</p>
+
+<p><b>Focus sessions</b></p>
+<ul>
+<li>Pick a time, hold the button, go. Distracting apps are locked while you focus.</li>
+<li>Modes like “Deep focus” with the apps you want to allow.</li>
+<li>Daily goal and streak in levels that motivate instead of overwhelm.</li>
+</ul>
+
+<p><b>Your own books</b></p>
+<ul>
+<li>PDF and EPUB, page by page like an e-reader, without distractions.</li>
+<li>Table of contents with chapters and sub-chapters, also read from the PDF itself.</li>
+<li>Bookmarks, notes per page and a calculator right inside the book.</li>
+</ul>
+
+<p><b>Think break</b></p>
+<ul>
+<li>Before apps you choose, a short question to think about comes first.</li>
+<li>Reminders as pop-up or full screen.</li>
+</ul>
+
+<p><b>Also</b></p>
+<ul>
+<li>Tasks in maths, physics and more, in levels.</li>
+<li>Notes to type or dictate.</li>
+<li>Progress with screen time, widgets.</li>
+</ul>
+
+<p>No accounts, no ads, no tracking. Everything stays on your phone. Only if you explicitly turn on the optional Lumina AI (clean up notes, find chapters) is the necessary text sent to a service on Cloudflare.</p>
+
+<p>The app lock uses the Android accessibility service “Lumina lock” only to see which app is opened during a focus session.</p>

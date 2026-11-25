@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Englisch ist der Standard. Die deutschen Texte stehen in values-de (das Handy nimmt sie, wenn es auf Deutsch eingestellt ist). -->
+<resources>
+    <string name="lock_service_label">Lumina Lock</string>
+    <string name="lock_service_description">During a reading session Lumina keeps you with your book: only Lumina and the apps you allowed in your mode can be opened. Lumina only sees which app is in front and never reads any content. Outside a session only if you turned on Think break: then a short task comes before the apps you picked there.</string>
+
+    <string name="widget_lumi_label">Lumi</string>
+    <string name="widget_lumi_desc">Lumi tells you how your day is going – and cheers you on.</string>
+    <string name="widget_streak_label">Streak</string>
+    <string name="widget_streak_desc">Your reading streak and streak freezes.</string>
+    <string name="widget_week_label">Last 7 days</string>
+    <string name="widget_week_desc">Minutes read over the last seven days.</string>
+    <string name="widget_month_label">Month</string>
+    <string name="widget_month_desc">Your reading days this month at a glance.</string>
+    <string name="widget_today_done">Today: done</string>
+    <string name="widget_today_open">Today: still open</string>
+    <string name="widget_streak_word">day streak</string>
+    <string name="widget_preview_title">Hi, I\'m Lumi!</string>
+    <string name="widget_preview_text">Read your first minutes today – I\'ll glow along.</string>
+    <string name="widget_preview_cta">Read now →</string>
+    <string name="widget_preview_week_total">2 h 05 min</string>
+    <string name="widget_preview_week_sub">Avg 18 min · goal hit 4/7 days</string>
+    <string name="widget_preview_month_total">14 reading days</string>
+    <string name="widget_preview_month_sub">5 h 40 min · goal hit on 9 days</string>
+</resources>

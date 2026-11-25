@@ -1,0 +1,24 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+
+# Prüfwerkzeuge (werden lokal gebaut)
+tools/check/build/
+tools/check/pdf-outline/pdfs/
+tools/check/pdf-outline/*.jar
+__pycache__/
+*.pyc
+
+# Signierschlüssel und fertige Pakete nie hochladen
+*.jks
+*.keystore
+*.aab
+/app/release/

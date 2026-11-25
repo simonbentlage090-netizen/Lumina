@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fach Literatur: aufgeschlagenes Buch mit Feder (gleicher Stil wie die anderen Fach-Bilder) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Schatten -->
+    <path
+        android:fillColor="#FFC25478"
+        android:pathData="M48 36c-9-6-21-8-32-7-2 0.2-3 1.5-3 3.4V71c0 2 1.6 3.4 3.6 3.3 10.4-0.6 20.6 1.4 31.4 7.7Z"/>
+    <path
+        android:fillColor="#FFC25478"
+        android:pathData="M48 36c9-6 21-8 32-7 2 0.2 3 1.5 3 3.4V71c0 2-1.6 3.4-3.6 3.3-10.4-0.6-20.6 1.4-31.4 7.7Z"/>
+    <!-- Seiten -->
+    <path
+        android:fillColor="#FFF08DB0"
+        android:pathData="M48 32c-9-6-21-8-32-7-2 0.2-3 1.5-3 3.4V67c0 2 1.6 3.4 3.6 3.3 10.4-0.6 20.6 1.4 31.4 7.7Z"/>
+    <path
+        android:fillColor="#FFF08DB0"
+        android:pathData="M48 32c9-6 21-8 32-7 2 0.2 3 1.5 3 3.4V67c0 2-1.6 3.4-3.6 3.3-10.4-0.6-20.6 1.4-31.4 7.7Z"/>
+    <!-- Zeilen -->
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M20 38c7-0.6 14 0.6 21 3.6M20 47c7-0.6 14 0.6 21 3.6M20 56c7-0.6 14 0.6 21 3.6"/>
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M55 41.6c7-3 14-4.2 21-3.6M55 50.6c7-3 14-4.2 21-3.6"/>
+    <!-- Feder -->
+    <path
+        android:fillColor="#FFE0962E"
+        android:pathData="M86 10c-14 2-26 12-30 30l-2 8 4-3c4-1 10-4 13-9 2-3 1-5 0-6 4-2 8-6 10-10 2-4 4-7 5-10Z"/>
+    <path
+        android:fillColor="#FFFFB648"
+        android:pathData="M86 8c-14 2-26 12-30 30l-2 8 4-3c4-1 10-4 13-9 2-3 1-5 0-6 4-2 8-6 10-10 2-4 4-7 5-10Z"/>
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M80 15C70 23 63 32 57 44"/>
+</vector>

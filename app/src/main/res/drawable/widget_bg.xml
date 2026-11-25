@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hintergrund der Streak-, Wochen- und Monats-Widgets: ruhige Karte, Ecken wie die System-Widgets. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/w_bg" />
+    <corners android:radius="@dimen/w_radius" />
+</shape>
