@@ -146,7 +146,21 @@ object ReminderStore {
     const val K_USAGE_LIMIT = "screen_warn_limit"
 
     // Neu in 13.3
-    private const val K_DAYS = "_days"
+    /**
+     * Wochentage einer eingebauten Erinnerung. Bis 15.7 hieß der Schlüssel "<id>_days" – bei der Streak-Erinnerung
+     * also "streak_days", genau wie die gespeicherten Streak-Tage ([de.funke.app.progress.Streaks.K_DONE]).
+     * Speichern der Streak-Erinnerung überschrieb damit den Streak und Lumina stürzte danach bei jedem Start ab.
+     * Seit 15.8 "reminder_days_<id>"; alte Werte von "read_days"/"bed_days" werden weiter gelesen,
+     * [de.funke.app.progress.Streaks.repair] räumt "streak_days" auf.
+     */
+    private const val K_DAYS_OLD = "_days"
+    const val K_DAYS_PREFIX = "reminder_days_"
+
+    private fun readDays(p: SharedPreferences, id: String): Int = when {
+        p.contains(K_DAYS_PREFIX + id) -> p.safeInt(K_DAYS_PREFIX + id, Days.ALL)
+        id != "streak" -> p.safeInt(id + K_DAYS_OLD, Days.ALL)
+        else -> Days.ALL
+    } and Days.ALL
     private const val K_DELIVERY = "_delivery"
     const val K_USAGE_GROUPS = "usage_groups"
     const val K_USAGE_APPS = "usage_apps"
@@ -160,17 +174,17 @@ object ReminderStore {
         ReminderKind.Read -> Reminder(
             "read", kind, p.safeBool(K_READ_ON, true),
             p.safeInt(K_READ_HOUR, 19).coerceIn(0, 23) * 60 + p.safeInt(K_READ_MINUTE, 0).coerceIn(0, 59),
-            p.safeInt("read$K_DAYS", Days.ALL) and Days.ALL, "", "", Delivery.byId(p.safeString("read$K_DELIVERY"), Delivery.Notify),
+            readDays(p, "read"), "", "", Delivery.byId(p.safeString("read$K_DELIVERY"), Delivery.Notify),
         )
         ReminderKind.Streak -> Reminder(
             "streak", kind, p.safeBool(K_STREAK_ON, true),
             p.safeInt(K_STREAK_HOUR, 21).coerceIn(0, 23) * 60 + p.safeInt(K_STREAK_MINUTE, 30).coerceIn(0, 59),
-            p.safeInt("streak$K_DAYS", Days.ALL) and Days.ALL, "", "", Delivery.byId(p.safeString("streak$K_DELIVERY"), Delivery.Notify),
+            readDays(p, "streak"), "", "", Delivery.byId(p.safeString("streak$K_DELIVERY"), Delivery.Notify),
         )
         ReminderKind.Bed -> Reminder(
             "bed", kind, p.safeBool(K_BED_ON, false),
             p.safeInt(K_BED_AT, 22 * 60).coerceIn(0, 1439),
-            p.safeInt("bed$K_DAYS", Days.ALL) and Days.ALL, "", "", Delivery.byId(p.safeString("bed$K_DELIVERY"), Delivery.Screen),
+            readDays(p, "bed"), "", "", Delivery.byId(p.safeString("bed$K_DELIVERY"), Delivery.Screen),
         )
         else -> error("kein eingebauter Termin: $kind")
     }
@@ -184,7 +198,7 @@ object ReminderStore {
             ReminderKind.Bed -> e.putBoolean(K_BED_ON, r.on).putInt(K_BED_AT, r.minuteOfDay)
             else -> return
         }
-        e.putInt(r.id + K_DAYS, r.days).putString(r.id + K_DELIVERY, r.delivery.id).apply()
+        e.putInt(K_DAYS_PREFIX + r.id, r.days).putString(r.id + K_DELIVERY, r.delivery.id).apply()
     }
 
     fun builtIns(p: SharedPreferences): List<Reminder> =

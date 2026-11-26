@@ -142,7 +142,26 @@ object Streaks {
 
     fun snapshot(context: Context): Snapshot = snapshot(context.getSharedPreferences(PREFS, Context.MODE_PRIVATE))
 
+    /**
+     * Repariert "streak_days" (seit 15.8): Bis 15.7 schrieb die Streak-Erinnerung ihre Wochentage als Zahl unter
+     * denselben Schlüssel. Dann stand dort keine Liste von Tagen mehr, und jedes Lesen stürzte ab. Die Zahl wandert
+     * zur Erinnerung zurück; ohne gespeicherte Tage nimmt Lumina wieder alle Tage mit Minuten (wie vor 8.4).
+     */
+    fun repair(prefs: SharedPreferences) {
+        val wrong = try {
+            prefs.getString(K_DONE, null)
+            return
+        } catch (_: ClassCastException) {
+            prefs.all[K_DONE]
+        }
+        val key = de.funke.app.notify.ReminderStore.K_DAYS_PREFIX + "streak"
+        val e = prefs.edit().remove(K_DONE)
+        if (wrong is Int && !prefs.contains(key)) e.putInt(key, wrong)
+        e.commit()
+    }
+
     fun snapshot(prefs: SharedPreferences): Snapshot {
+        repair(prefs)
         val days = HashMap<String, Int>()
         prefs.getString(K_DAYS, null)?.let { json ->
             runCatching { val o = JSONObject(json); for (k in o.keys()) days[k] = o.getInt(k) }

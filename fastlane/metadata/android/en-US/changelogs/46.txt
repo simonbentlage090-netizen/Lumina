@@ -1,0 +1,1 @@
+- Fixed: crash after testing or saving the streak reminder – Lumina repairs the affected data on start

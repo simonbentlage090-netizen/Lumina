@@ -3,6 +3,12 @@
 Detailed notes for every version, written during development (in German).
 For an overview of the app, see [README.md](README.md).
 
+## Neu in 15.8 – Absturz bei der Streak-Erinnerung behoben
+
+- **Ursache:** Die eingebauten Erinnerungen speicherten ihre Wochentage unter `<id>_days`. Bei der Streak-Erinnerung ergab das `streak_days` – genau der Schlüssel, unter dem Lumina die Streak-Tage speichert (`Streaks.K_DONE`). Sobald man die Streak-Erinnerung änderte oder testete, stand dort eine Zahl statt der Tage: „Jetzt testen“/„In 1 Min.“ stürzten ab, danach auch jeder Start (`ClassCastException` in `Streaks.snapshot` und `AppState`).
+- **Behoben:** Wochentage heißen jetzt `reminder_days_<id>` (alte `read_days`/`bed_days` werden weiter gelesen). `Streaks.repair` räumt beim Start (und bevor Widgets oder Erinnerungen den Streak lesen) einen kaputten `streak_days` auf: die Zahl wandert zur Erinnerung zurück, die Streak-Tage werden wie vor 8.4 aus den Tagen mit Minuten gebildet. Wer betroffen war, muss nichts löschen – Lumina startet wieder.
+- Alle anderen gemeinsam genutzten Schlüssel geprüft: überall derselbe Typ.
+
 ## Neu in 15.7 – Sicherheitsprüfung und Gradle Wrapper
 
 - **Denkpause und Erinnerungs-Bildschirm nur von Lumina selbst:** `MainActivity` ist als Startbildschirm für alle Apps erreichbar. Bisher hätte eine fremde App Lumina mit einer Denkpause oder einer erfundenen „Erinnerung“ öffnen können. Jetzt bekommt jede Installation einen zufälligen Ausweis (`DeepLink.sign`, gespeichert in `guard`), den nur Luminas eigene Intents tragen (Bedienungshilfe, Erinnerungen). Reiter und Notizen öffnen (Widgets) bleibt ohne Ausweis möglich.

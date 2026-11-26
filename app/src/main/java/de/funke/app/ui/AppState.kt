@@ -1094,6 +1094,8 @@ class AppState(private val prefs: SharedPreferences? = null, private val appCont
             }
         }
         // Streak-Tage: bis 8.4 gab es nur ganze Sessions mit Minuten, also zählt jeder Tag mit Minuten.
+        // Vorher den Schlüssel reparieren, den die Streak-Erinnerung bis 15.7 überschreiben konnte.
+        prefs?.let { Streaks.repair(it) }
         doneDays = if (prefs?.contains(Streaks.K_DONE) == true) {
             Streaks.parseSet(prefs.getString(Streaks.K_DONE, null))
         } else {
