@@ -59,7 +59,7 @@ object LegalTexts {
     val ADDRESS: List<String> = emptyList()
 
     /** Adresse des Quellcode-Repositorys, z. B. "https://github.com/name/lumina" (leer = ohne Link). */
-    const val SOURCE = ""
+    const val SOURCE = "https://github.com/simonbentlage090-netizen/Lumina"
 
     /** Lizenz der App (Volltext in der Datei LICENSE). */
     const val LICENSE_DE = "GNU General Public License, Version 3 (GPL-3.0)"

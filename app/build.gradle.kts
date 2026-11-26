@@ -14,8 +14,8 @@ android {
         applicationId = "de.simonbentlage.lumina"
         minSdk = 26
         targetSdk = 35
-        versionCode = 44
-        versionName = "15.6"
+        versionCode = 45
+        versionName = "15.7"
     }
 
     buildTypes {

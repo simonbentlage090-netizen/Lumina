@@ -1,5 +1,6 @@
 package de.funke.app.ui
 
+import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -33,6 +34,28 @@ object DeepLink {
     /** Vom Widget: gleich die Notizen öffnen. */
     const val EXTRA_NOTES = "de.funke.app.extra.NOTES"
 
+    /**
+     * Ausweis für Sprünge, die Lumina selbst auslöst (Denkpause, Erinnerung als Bildschirm). MainActivity ist als
+     * Startbildschirm für alle Apps erreichbar; ohne diesen Ausweis könnte eine fremde App Lumina eine Denkpause oder
+     * eine erfundene "Erinnerung" anzeigen lassen. Zufällig pro Installation, verlässt das Gerät nie (seit 15.7).
+     */
+    private const val EXTRA_PASS = "de.funke.app.extra.PASS"
+    private var pass: String? = null
+
+    private fun pass(ctx: Context): String = pass ?: synchronized(this) {
+        pass ?: run {
+            val prefs = ctx.applicationContext.getSharedPreferences("guard", Context.MODE_PRIVATE)
+            prefs.getString("pass", null) ?: java.util.UUID.randomUUID().toString().also {
+                prefs.edit().putString("pass", it).apply()
+            }
+        }.also { pass = it }
+    }
+
+    /** Hängt den Ausweis an einen Intent, den Lumina selbst an MainActivity schickt. */
+    fun sign(ctx: Context, intent: Intent): Intent = intent.putExtra(EXTRA_PASS, pass(ctx))
+
+    private fun signed(ctx: Context, intent: Intent): Boolean = intent.getStringExtra(EXTRA_PASS) == pass(ctx)
+
     /** -1 = kein Sprung. */
     var tab by mutableIntStateOf(-1)
 
@@ -54,24 +77,27 @@ object DeepLink {
     /** Notizen von oben öffnen (vom Widget oder aus einer Benachrichtigung). */
     var notes by mutableStateOf(false)
 
-    fun consume(intent: Intent?) {
+    fun consume(ctx: Context, intent: Intent?) {
         if (intent == null) return
+        // Reiter und Notizen öffnen ist harmlos; Denkpause und Erinnerung nur mit Luminas eigenem Ausweis.
+        val trusted = signed(ctx, intent)
+        intent.removeExtra(EXTRA_PASS)
         val t = intent.getIntExtra(EXTRA_TAB, -1)
         if (t >= 0) {
             tab = t
             intent.removeExtra(EXTRA_TAB)
         }
         val pkg = intent.getStringExtra(EXTRA_GATE_PKG)
-        if (!pkg.isNullOrBlank()) {
+        if (!pkg.isNullOrBlank() && trusted) {
             // Steht schon eine Frage da, bleibt sie stehen (sonst käme alle paar Sekunden eine neue)
             if (gate == null) gate = GateRequest(pkg, intent.getBooleanExtra(EXTRA_GATE_CHECKIN, false))
-            intent.removeExtra(EXTRA_GATE_PKG)
         }
-        intent.getStringExtra(EXTRA_REMINDER)?.let { json ->
+        intent.removeExtra(EXTRA_GATE_PKG)
+        intent.getStringExtra(EXTRA_REMINDER)?.takeIf { trusted }?.let { json ->
             runCatching { de.funke.app.notify.Reminders.Shown.fromJson(org.json.JSONObject(json)) }.getOrNull()
                 ?.let { reminder = ReminderRequest(it, fromOutside = true) }
-            intent.removeExtra(EXTRA_REMINDER)
         }
+        intent.removeExtra(EXTRA_REMINDER)
         if (intent.getBooleanExtra(EXTRA_NOTES, false)) {
             notes = true
             intent.removeExtra(EXTRA_NOTES)

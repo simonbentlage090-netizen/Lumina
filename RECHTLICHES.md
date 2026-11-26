@@ -25,9 +25,7 @@ Lumina Kapitel nur auf dem Gerät aus dem Text (6 a). Weniger Übermittlung, kei
 
 ## Noch offen (optional)
 
-1. **Adresse des GitHub-Repositorys** in `LegalTexts.SOURCE` eintragen, sobald es das Repository gibt,
-   zum Beispiel `https://github.com/DEIN-NAME/lumina`. Das ist einfach die Internetadresse, unter der der Quellcode
-   auf GitHub liegt. Ohne sie steht in der App allgemein „im öffentlichen Repository von Lumina auf GitHub“.
+1. ~~Adresse des GitHub-Repositorys~~ erledigt in 15.7: `LegalTexts.SOURCE` = `https://github.com/simonbentlage090-netizen/Lumina`.
 2. Im Cloudflare-Dashboard beim Worker unter Einstellungen → Observability „Logs speichern“ ausschalten,
    damit dort keine Anfragen mitprotokolliert werden.
 

@@ -1,0 +1,3 @@
+- Safer: other apps can no longer trigger the Think Break or reminders
+- Books: crafted EPUB files can no longer crash Lumina
+- Clearer description of the accessibility service in settings

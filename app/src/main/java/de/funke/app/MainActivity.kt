@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
         // Sprache vor dem ersten Bild laden, damit kein Text kurz in der falschen Sprache aufblitzt.
         Lang.load(getSharedPreferences("funke", MODE_PRIVATE))
         // Vom Widget geöffnet? Dann gleich den richtigen Reiter zeigen.
-        if (savedInstanceState == null) DeepLink.consume(intent)
+        if (savedInstanceState == null) DeepLink.consume(this, intent)
 
         val view = ComposeView(this)
         setContentView(view)
@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        DeepLink.consume(intent)
+        DeepLink.consume(this, intent)
     }
 
     override fun onStop() {

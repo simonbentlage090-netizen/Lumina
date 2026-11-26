@@ -382,10 +382,12 @@ object Reminders {
     }
 
     /** Intent, der Lumina mit dieser Erinnerung öffnet (sie liegt dann über allem in der App). */
-    fun screenIntent(ctx: Context, shown: Shown): Intent =
+    fun screenIntent(ctx: Context, shown: Shown): Intent = de.funke.app.ui.DeepLink.sign(
+        ctx,
         Intent(ctx, de.funke.app.MainActivity::class.java)
             .putExtra(de.funke.app.ui.DeepLink.EXTRA_REMINDER, shown.toJson().toString())
-            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_SINGLE_TOP),
+    )
 
     /** Lumi-Bildschirm sofort öffnen (die Bedienungshilfe darf Lumina auch aus dem Hintergrund nach vorn holen). */
     internal fun showNow(ctx: Context, shown: Shown): Boolean {

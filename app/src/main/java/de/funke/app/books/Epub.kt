@@ -36,15 +36,36 @@ class EpubException(val reason: Reason) : Exception(reason.name) {
 
 object Epub {
 
+    /** Höchstens so viel liest Lumina aus einer einzelnen Datei im EPUB (Schutz vor "ZIP-Bomben", seit 15.7). */
+    private const val TEXT_LIMIT = 16 * 1024 * 1024
+
+    /**
+     * Liest höchstens [limit] Bytes; ist der Inhalt größer, null. Die Größe im ZIP-Verzeichnis kann gefälscht
+     * sein, deshalb wird beim Lesen selbst gezählt.
+     */
+    private fun capped(input: java.io.InputStream, limit: Int): ByteArray? {
+        val out = java.io.ByteArrayOutputStream()
+        val buf = ByteArray(64 * 1024)
+        var total = 0
+        while (true) {
+            val n = input.read(buf)
+            if (n < 0) break
+            total += n
+            if (total > limit) return null
+            out.write(buf, 0, n)
+        }
+        return out.toByteArray()
+    }
+
     fun read(file: File, withCover: Boolean = true): EpubBook = ZipFile(file).use { zip ->
         fun text(path: String): String? {
             val e = zip.getEntry(path) ?: zip.entries().asSequence().firstOrNull { it.name.equals(path, ignoreCase = true) } ?: return null
-            return zip.getInputStream(e).use { it.readBytes() }.toString(Charsets.UTF_8)
+            return zip.getInputStream(e).use { capped(it, TEXT_LIMIT) }?.toString(Charsets.UTF_8)
         }
         fun bytes(path: String, limit: Int): ByteArray? {
             val e = zip.getEntry(path) ?: return null
             if (e.size > limit) return null
-            return zip.getInputStream(e).use { it.readBytes() }
+            return zip.getInputStream(e).use { capped(it, limit) }
         }
 
         val container = text("META-INF/container.xml") ?: throw EpubException(EpubException.Reason.NotEpub)

@@ -3,6 +3,15 @@
 Detailed notes for every version, written during development (in German).
 For an overview of the app, see [README.md](README.md).
 
+## Neu in 15.7 – Sicherheitsprüfung und Gradle Wrapper
+
+- **Denkpause und Erinnerungs-Bildschirm nur von Lumina selbst:** `MainActivity` ist als Startbildschirm für alle Apps erreichbar. Bisher hätte eine fremde App Lumina mit einer Denkpause oder einer erfundenen „Erinnerung“ öffnen können. Jetzt bekommt jede Installation einen zufälligen Ausweis (`DeepLink.sign`, gespeichert in `guard`), den nur Luminas eigene Intents tragen (Bedienungshilfe, Erinnerungen). Reiter und Notizen öffnen (Widgets) bleibt ohne Ausweis möglich.
+- **EPUB:** Jede Datei im Buch wird beim Lesen auf 16 MB begrenzt; die Größe im ZIP-Verzeichnis wird nicht mehr geglaubt (`Epub.capped`). Ein präpariertes Buch kann Lumina so nicht mehr mit Speicher fluten.
+- **Bedienungshilfe:** Die Beschreibung in den Android-Einstellungen spricht von Fokuszeit statt „Lese-Session“ und nennt die Vollbild-Erinnerungen.
+- **Projekt:** Gradle Wrapper (`gradlew`, `gradlew.bat`, `gradle/wrapper/gradle-wrapper.jar`) liegt jetzt bei. README auf Englisch (`README.md`) und Deutsch (`README.de.md`), Versionsverlauf in `CHANGELOG.md`. `.kotlin/` wird ignoriert.
+- **Quellcode-Link:** In der App (Rechtliches, Lizenz) steht jetzt die Adresse des Repositorys `https://github.com/simonbentlage090-netizen/Lumina`.
+- Noch offen für Google Play: AGP-Upgrade und `compileSdk`/`targetSdk` 36.
+
 ## Neu in 15.6 – bereit für GitHub, F-Droid und Google Play
 
 - **Neuer Paketname:** `de.simonbentlage.lumina` (vorher `de.funke.app`). Der Code bleibt im Paket `de.funke.app` (`namespace`). Auf bestehenden Geräten wird Lumina dadurch als neue App installiert.

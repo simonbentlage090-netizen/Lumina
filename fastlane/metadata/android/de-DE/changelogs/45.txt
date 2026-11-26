@@ -1,0 +1,3 @@
+- Sicherer: Denkpause und Erinnerungen lassen sich nicht mehr von anderen Apps auslösen
+- Bücher: präparierte EPUB-Dateien können Lumina nicht mehr zum Absturz bringen
+- Klarere Beschreibung der Bedienungshilfe in den Einstellungen

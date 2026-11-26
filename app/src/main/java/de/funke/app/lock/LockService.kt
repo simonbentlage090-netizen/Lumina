@@ -326,7 +326,7 @@ class LockService : AccessibilityService() {
     private fun openGate(pkg: String, checkIn: Boolean) {
         runCatching {
             startActivity(
-                Intent(this, MainActivity::class.java)
+                de.funke.app.ui.DeepLink.sign(this, Intent(this, MainActivity::class.java))
                     .putExtra(de.funke.app.ui.DeepLink.EXTRA_GATE_PKG, pkg)
                     .putExtra(de.funke.app.ui.DeepLink.EXTRA_GATE_CHECKIN, checkIn)
                     .addFlags(
